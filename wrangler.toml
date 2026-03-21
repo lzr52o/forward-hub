@@ -7,7 +7,7 @@ limits = { max_upload_size = 5 }
 
 # KV 存储（用于存放模块文件）
 [[kv_namespaces]]
-binding = "MODULES_KV"
+binding = "FORWARD"
 id = "modules_kv"
 preview_id = "modules_kv_preview"
 
