@@ -15,4 +15,4 @@ preview_id = "modules_kv_preview"
 [[d1_databases]]
 binding = "DB"
 database_name = "forward_hub_db"
-database_id = "forward_hub_db"
+database_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8"
