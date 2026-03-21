@@ -9,7 +9,8 @@ limits = { max_upload_size = 5 }
 [[kv_namespaces]]
 binding = "FORWARD"
 id = "modules_kv"
-preview_id = "modules_kv_preview"
+preview_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8
+"
 
 # D1 数据库（用于存放模块元数据）
 [[d1_databases]]
