@@ -1,5 +1,5 @@
 name = "forward-hub"
-main = "dist/index.js"  # 改为编译后的文件
+main = "src/index.ts"  # 直接使用源代码
 compatibility_date = "2026-03-22"
 compatibility_flags = ["nodejs_compat"]
 
