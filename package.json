@@ -2,7 +2,7 @@
   "name": "forward-hub",
   "version": "1.0.0",
   "description": "A lightweight Forward widget hub using Cloudflare Workers, KV and D1.",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
