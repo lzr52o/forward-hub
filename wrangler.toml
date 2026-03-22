@@ -1,15 +1,23 @@
 name = "forward-hub"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
 
+# 上传大小限制（你选的 5MB）
 limits = { max_upload_size = 5 }
 
+# KV 存储
 [[kv_namespaces]]
 binding = "FORWARD"
 id = "4006600d8c7d4bddbd6c083afe653720"
 preview_id = "4006600d8c7d4bddbd6c083afe653720"
 
+# D1 数据库
 [[d1_databases]]
 binding = "DB"
 database_name = "forward_hub_db"
 database_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8"
+
+# 生产环境（可选）
+[env.production]
+compatibility_date = "2024-01-01"
