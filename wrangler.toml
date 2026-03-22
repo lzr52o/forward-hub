@@ -3,18 +3,21 @@ main = "src/index.ts"
 compatibility_date = "2024-09-10"
 compatibility_flags = ["nodejs_compat"]
 
-account_id = "22bae91e33c9c8ee1047ba08ac5ed144"
+# 1. 只有发布到 workers.dev 时才需要这个
 workers_dev = true
 
+# 2. KV 绑定：必须替换为真实的 ID
 [[kv_namespaces]]
 binding = "FORWARD"
-id = "YOUR_KV_ID"
+id = "这里填入你运行 npx wrangler kv:namespace create FORWARD 后生成的 ID"
 
 [vars]
-PASSWORD = "YOUR_PASSWORD"
+PASSWORD = "设置你的登录密码"
 
+# 3. 生产环境配置（如果你有自定义域名）
 [env.production]
 workers_dev = false
-route = ""
-zone_id = "YOUR_ZONE_ID"
+# 如果你没有自定义域名，请删除 route 和 zone_id，或者填入真实值
+# route = "example.com/*"
+# zone_id = "从 Cloudflare 域名概述页面获取"
 compatibility_date = "2024-09-10"
