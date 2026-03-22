@@ -1,16 +1,19 @@
 name = "forward-hub"
-main = "src/index.js"
-compatibility_date = "2024-01-01"
+main = "dist/index.js"
+compatibility_date = "2026-03-22"
 compatibility_flags = ["nodejs_compat"]
 
-limits = { max_upload_size = 5 }
-
+# KV Namespace
 [[kv_namespaces]]
-binding = "FORWARD"
-id = "4006600d8c7d4bddbd6c083afe653720"
-preview_id = "4006600d8c7d4bddbd6c083afe653720"
+binding = "KV"
+id = "your_kv_namespace_id"
 
+# D1 Database
 [[d1_databases]]
 binding = "DB"
-database_name = "forward_hub_db"
-database_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8"
+database_name = "forward-hub-db"
+database_id = "your_d1_database_id"
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
