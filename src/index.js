@@ -33,7 +33,7 @@ export default {
       const key = path.replace("/api/delete/", "");
       return del(request, env, key);
     }
-// force rebuild
+   // force rebuild
     return new Response("Forward Hub is running.", { status: 200 });
   }
 };
