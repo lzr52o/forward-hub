@@ -1,23 +1,15 @@
 name = "forward-hub"
-main = "src/index.ts"
-compatibility_date = "2024-09-10"
-compatibility_flags = ["nodejs_compat"]
+main = "src/index.js"
+compatibility_date = "2024-01-01"
 
-# 1. 只有发布到 workers.dev 时才需要这个
-workers_dev = true
+limits = { max_upload_size = 5 }
 
-# 2. KV 绑定：必须替换为真实的 ID
 [[kv_namespaces]]
 binding = "FORWARD"
-id = "这里填入你运行 npx wrangler kv:namespace create FORWARD 后生成的 ID"
+id = "4006600d8c7d4bddbd6c083afe653720"
+preview_id = "4006600d8c7d4bddbd6c083afe653720"
 
-[vars]
-PASSWORD = "设置你的登录密码"
-
-# 3. 生产环境配置（如果你有自定义域名）
-[env.production]
-workers_dev = false
-# 如果你没有自定义域名，请删除 route 和 zone_id，或者填入真实值
-# route = "example.com/*"
-# zone_id = "从 Cloudflare 域名概述页面获取"
-compatibility_date = "2024-09-10"
+[[d1_databases]]
+binding = "DB"
+database_name = "forward_hub_db"
+database_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8"
