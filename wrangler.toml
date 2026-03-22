@@ -1,19 +1,29 @@
 name = "forward-hub"
-main = "dist/index.js"
+main = "src/index.ts"
 compatibility_date = "2026-03-22"
 compatibility_flags = ["nodejs_compat"]
 
-# KV Namespace
-[[kv_namespaces]]
-binding = "KV"
-id = "your_kv_namespace_id"
+# 你的 Cloudflare 账号 ID（必须填）
+account_id = "22bae91e33c9c8ee1047ba08ac5ed144"
 
-# D1 Database
+# 本地调试用
+workers_dev = true
+
+# KV 存储
+[[kv_namespaces]]
+binding = "MODULES_KV"
+id = "modules_kv"
+preview_id = "modules_kv_preview"
+
+# D1 数据库
 [[d1_databases]]
 binding = "DB"
-database_name = "forward-hub-db"
-database_id = "your_d1_database_id"
+database_name = "forward_hub_db"
+database_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8"
 
-# Environment variables
+# 环境变量
 [vars]
-ENVIRONMENT = "production"
+PASSWORD = "YOUR_PASSWORD"
+
+# 删除 [build] 配置 - Workers Builds 不支持
+# 删除 [env.production] - Workers Builds 需要明确指定环境
