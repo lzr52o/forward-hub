@@ -6,17 +6,12 @@ compatibility_flags = ["nodejs_compat"]
 account_id = "22bae91e33c9c8ee1047ba08ac5ed144"
 workers_dev = true
 
-# KV
 [[kv_namespaces]]
 binding = "FORWARD"
 id = "YOUR_KV_ID"
 
-# 环境变量
 [vars]
 PASSWORD = "YOUR_PASSWORD"
-
-# ❗ 删除 build，不需要构建
-# ❗ 删除 upload，不需要 modules 配置
 
 [env.production]
 workers_dev = false
