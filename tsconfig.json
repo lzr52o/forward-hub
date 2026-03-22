@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": false,
-    "esModuleInterop": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "types": ["@cloudflare/workers-types"],
     "skipLibCheck": true,
-    "allowJs": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "allowJs": true,
+    "noEmit": false,
+    "outDir": "./dist",
+    "strict": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
+``*
