@@ -1,21 +1,16 @@
 name = "forward-hub"
-main = "src/index.ts"  # 直接使用源代码
-compatibility_date = "2026-03-22"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
-account_id = "22bae91e33c9c8ee1047ba08ac5ed144"
+limits = { max_upload_size = 5 }
 
-# KV 存储
 [[kv_namespaces]]
-binding = "MODULES_KV"
-id = "modules_kv"
-preview_id = "modules_kv_preview"
+binding = "FORWARD"
+id = "4006600d8c7d4bddbd6c083afe653720"
+preview_id = "4006600d8c7d4bddbd6c083afe653720"
 
-# D1 数据库
 [[d1_databases]]
 binding = "DB"
 database_name = "forward_hub_db"
 database_id = "7bc60b52-de53-4531-9cfd-00fcea27aae8"
-
-[vars]
-PASSWORD = "YOUR_PASSWORD"
