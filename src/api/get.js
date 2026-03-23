@@ -1,20 +1,17 @@
-import { jsonResponse, errorResponse } from "../utils/response.js";
-
 export default async function get(request, env, key) {
   try {
-    const file = await env.MODULES_KV.get(key, { type: "arrayBuffer" });
+    if (!env.MODULES_KV) throw new Error("未找到 KV 存储绑定");
+    const value = await env.MODULES_KV.get(key, "arrayBuffer");
+    
+    if (!value) return new Response(JSON.stringify({error: "文件不存在"}), {status: 404, headers: {"Content-Type": "application/json"}});
 
-    if (!file) {
-      return errorResponse("Module not found", 404);
-    }
-
-    return new Response(file, {
+    return new Response(value, {
       headers: {
-        "Content-Type": "application/octet-stream",
-        "Content-Disposition": `attachment; filename="${key}"`
+        "Content-Disposition": `attachment; filename="${key}"`,
+        "Content-Type": "application/octet-stream"
       }
     });
-  } catch (err) {
-    return errorResponse(err.message, 500);
+  } catch (e) {
+    return new Response(JSON.stringify({error: e.message}), {status: 500, headers: {"Content-Type": "application/json"}});
   }
 }
