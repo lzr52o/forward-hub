@@ -1,20 +1,12 @@
-import { jsonResponse, errorResponse } from "../utils/response.js";
-
 export default async function del(request, env, key) {
   try {
-    // 删除 KV 文件
+    if (!env.MODULES_KV) throw new Error("未找到 KV 存储绑定");
+    
     await env.MODULES_KV.delete(key);
+    await env.DB.prepare("DELETE FROM modules WHERE name = ?").bind(key).run();
 
-    // 删除 D1 元数据
-    await env.DB.prepare(
-      "DELETE FROM modules WHERE name = ?"
-    ).bind(key).run();
-
-    return jsonResponse({
-      message: "Delete success",
-      name: key
-    });
-  } catch (err) {
-    return errorResponse(err.message, 500);
+    return new Response(JSON.stringify({success: true, message: "删除成功"}), {headers: {"Content-Type": "application/json"}});
+  } catch (e) {
+    return new Response(JSON.stringify({error: e.message}), {status: 500, headers: {"Content-Type": "application/json"}});
   }
 }
