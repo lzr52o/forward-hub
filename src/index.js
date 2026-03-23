@@ -29,7 +29,7 @@ export default {
       return del(request, env, key);
     }
 
-    // ⭐ 你缺少的就是这一段
+    // ⭐ 你之前缺少的部分
     return new Response("Forward Hub is running.", { status: 200 });
   }
 };
