@@ -29,7 +29,6 @@ export default {
       return del(request, env, key);
     }
 
-    // ⭐ 你之前缺少的部分
     return new Response("Forward Hub is running.", { status: 200 });
   }
 };
