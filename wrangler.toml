@@ -3,13 +3,19 @@ main = "src/index.js"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
+# 上传大小限制（5MB）
 limits = { max_upload_size = 5 }
 
+# 静态资源目录（用于 upload.html）
+assets = { directory = "./public" }
+
+# KV 存储（用于存放模块文件）
 [[kv_namespaces]]
 binding = "FORWARD"
 id = "4006600d8c7d4bddbd6c083afe653720"
 preview_id = "4006600d8c7d4bddbd6c083afe653720"
 
+# D1 数据库（用于存放模块元数据）
 [[d1_databases]]
 binding = "DB"
 database_name = "forward_hub_db"
