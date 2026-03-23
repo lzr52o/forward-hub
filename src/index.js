@@ -6,18 +6,15 @@ import del from "./api/delete.js";
 
 export default {
   async fetch(request, env) {
-  
     await initDatabase(env);
 
     const url = new URL(request.url);
     const path = url.pathname;
 
- 
     if (path === "/api/upload" && request.method === "POST") {
       return upload(request, env);
     }
 
-   
     if (path === "/api/list") {
       return list(request, env);
     }
@@ -31,7 +28,8 @@ export default {
       const key = path.replace("/api/delete/", "");
       return del(request, env, key);
     }
-  
+
+    // ⭐ 你缺少的就是这一段
     return new Response("Forward Hub is running.", { status: 200 });
   }
 };
